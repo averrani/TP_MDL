@@ -5,9 +5,9 @@ let users = JSON.parse(rawdata);
 let country = new Array(users.length);
 let company = new Array(users.length);
 
-console.log("Menu");
-console.log("Afficher la liste des pays et le compteur");
-
+console.log("       Menu : \n");
+console.log(" -- Afficher la liste des pays et le compteur");
+console.log(" -- Afficher la liste des sociétés et le compteur");
 const input = process.argv[2];
 
 if (input === 'country') {
