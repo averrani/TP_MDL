@@ -5,7 +5,10 @@ let users = JSON.parse(rawdata);
 let country = new Array(users.length);
 let company = new Array(users.length);
 
-const input =process.argv[2];
+console.log("Menu");
+console.log("Afficher la liste des pays et le compteur");
+
+const input = process.argv[2];
 
 if (input === 'country') {
     //on met que les country dans country
@@ -49,3 +52,4 @@ if (input === 'country') {
     res.sort((a, b) => b.count - a.count);
     console.log(res);
 }
+
