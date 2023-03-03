@@ -5,15 +5,19 @@ let readlineSync = require('readline-sync');
 let rawdata = fs.readFileSync('users.json');
 let i, id, email, first, last, company, company1, created, country, country1, user, users, input;
 
+/**
+ * on a recupéré les données du fichier et on les stocke dans users
+ */
 function getData(){
-    //on a recupéré les données du fichier et on les stocke dans users
     users = JSON.parse(rawdata);
     country = new Array(users.length);
     company = new Array(users.length);
 }
 
+/**
+ * on affiche le menu et les questions en couleur
+ */
 function printQst(){
-    // on affiche le menu et les questions en couleur
     console.log(chalk.red("                    Menu : \n"));
     console.log(chalk.blue(" -1- Afficher la liste des pays et le compteur"));
     console.log(chalk.blue(" -2- Afficher la liste des sociétés et le compteur"));
@@ -24,6 +28,7 @@ function printQst(){
 
 function getElement(elt){
     //on met que les elt selectiones dans elt
+    
     if(elt === country){
         for (i = 0; i < users.length; i++) {
             elt[i] = users[i].country;
@@ -33,6 +38,7 @@ function getElement(elt){
             elt[i] = users[i].company;
         }
     }
+   
     // on compte les elt et on les met dans l'objet counts
     const counts = {};
     for (const num of elt) {
@@ -53,7 +59,7 @@ function getElement(elt){
 }
 
 function addUser(){
-    id = readlineSync.question(chalk.green('Quel est l`id ? \n'));
+        id = readlineSync.question(chalk.green('Quel est l`id ? \n')); //changer
         email = readlineSync.question(chalk.green('Quel est l`email ? \n'));
         first = readlineSync.question(chalk.green('Quel est le prenom ? \n'));
         last = readlineSync.question(chalk.green('Quel est le nom? \n'));
@@ -95,9 +101,14 @@ function cases(input){
     }
 }
 
-getData();
-printQst();
-cases(input);
+function main(){
+    getData();
+    printQst();
+    cases(input);
+}
+
+main();
+
 
 
 
